@@ -1,0 +1,211 @@
+/* ======== Tema Celeste Premium + Blanco ======== */
+:root{
+  --celeste-900:#055e62;
+  --celeste-700:#0a9aa6;
+  --accent:#3fc3d6;
+  --text:#043533;
+  --white:#ffffff;
+  --muted:#6b7b7d;
+  --card:#f8feff;
+  --glass: rgba(255,255,255,0.18);
+  --radius:16px;
+  --shadow-lg: 0 20px 50px rgba(2,24,24,0.12);
+  --shadow-sm: 0 8px 24px rgba(6,22,20,0.08);
+  --header-h: 72px; /* alto del header */
+}
+
+/* ======== Reset básico ======== */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; margin: 0; }
+
+/* ======== Base ======== */
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg,#f7feff,#ffffff);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+
+  /* Centro el contenido en pantalla sin afectar el header fixed */
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: calc(var(--header-h) + 24px) 24px 24px; /* deja espacio bajo el header */
+}
+
+/* ======== Header (barra transparente con blur) ======== */
+.site-header{
+  position: fixed; inset: 0 0 auto 0; height: var(--header-h);
+  z-index: 60;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: var(--glass);           /* transparente */
+  border-bottom: 1px solid rgba(3,20,18,0.08);
+}
+.site-header .header-inner{
+  max-width: 1180px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.brand{
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(90deg,var(--celeste-900),var(--celeste-700));
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.brand .accent{
+  color:#fff; background: rgba(255,255,255,0.12);
+  padding: 2px 6px; border-radius: 8px; margin-left: 4px;
+}
+
+.nav{ display: flex; align-items: center; gap: 18px; }
+.nav a{
+  color: #fdfdfd;               /* texto oscuro para verse bien sobre el glass */
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.95;
+}
+.nav .cta{
+  background: var(--accent);
+  color: #00363a;
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(63,195,214,0.12);
+}
+
+/* Toggle móvil (oculto por defecto) */
+#nav-toggle{
+  display: none;
+  background: transparent; border: 0; color: #063b3a; font-size: 22px;
+}
+
+/* ======== Contenedor del formulario (centrado y más grande) ======== */
+/* Si tu HTML usa .container para el formulario, esto lo estiliza directo */
+.container{
+  width: clamp(60px, 74vw, 720px);     /* ← tamaño ajustado del form */
+  margin: 0 auto;
+  
+  padding: 32px 28px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+/* ======== Tipografía encabezado del formulario ======== */
+h1{
+  margin: 0 0 22px;
+  font-weight: 800;
+  color: #004080;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+
+/* ======== Formulario ======== */
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+label{
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea{
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 2px solid #0077cc;
+  border-radius: 10px;
+  transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
+  width: 100%;
+  font-family: inherit;
+  background: #ffffff;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus{
+  outline: none;
+  border-color: #0059a3;
+  background: #eaf3ff;
+  box-shadow: 0 0 0 4px rgba(0,89,163,.15);
+}
+
+textarea{ resize: vertical; min-height: 110px; }
+
+/* ======== Botón ======== */
+button{
+  background: linear-gradient(145deg,#0077cc,#0059a3);
+  color: #fff;
+  font-weight: 800;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,85,170,.35), inset 0 -3px 8px rgba(255,255,255,.22);
+  transition: transform .15s ease, box-shadow .25s ease, filter .2s ease;
+}
+button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,85,170,.45), inset 0 -3px 8px rgba(255,255,255,.28);
+  filter: brightness(1.02);
+}
+
+/* ======== Mensaje de enviado ======== */
+.mensaje-enviado{
+  margin-top: 22px;
+  font-size: 26px;
+  font-weight: 900;
+  color: #0077cc;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s ease;
+  text-shadow:
+    1px 1px 2px #004080,
+    2px 2px 5px #003366,
+    0 0 15px #3399ff;
+}
+.mensaje-enviado.show{
+  opacity: 1;
+  animation: pulse3d 1.5s ease-in-out infinite alternate;
+}
+@keyframes pulse3d{
+  0%{
+    text-shadow: 1px 1px 2px #004080, 2px 2px 5px #003366, 0 0 15px #3399ff;
+    transform: rotateX(0) rotateY(0);
+  }
+  50%{
+    text-shadow: 1px 1px 6px #66b3ff, 2px 2px 15px #3399ff, 0 0 30px #80c1ff;
+    transform: rotateX(10deg) rotateY(8deg);
+  }
+  100%{
+    text-shadow: 1px 1px 2px #004080, 2px 2px 5px #003366, 0 0 15px #3399ff;
+    transform: rotateX(0) rotateY(0);
+  }
+}
+
+/* ======== Utilidades ======== */
+.fade-up{ opacity:0; transform: translateY(14px); transition: all .6s cubic-bezier(.2,.9,.3,1); }
+.fade-up.in{ opacity:1; transform:none; }
+
+/* ======== Responsive ======== */
+@media (max-width: 980px){
+  body{ padding: calc(var(--header-h) + 16px) 16px 16px; }
+  .site-header .header-inner{ gap: 10px; }
+  #nav-toggle{ display:block; }
+  .nav{ display:none; } /* si luego lo abrís con JS */
+  .container{ width: min(95vw, 720px); padding: 24px 20px; }
+}

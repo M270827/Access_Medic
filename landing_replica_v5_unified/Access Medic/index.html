@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Access Medic</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../inner.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="brand">Access<span class="accent"></span>Medic</a>
+    <nav class="nav">
+      <a href="../index.html">Inicio</a>
+      <a href="./index.html">Access Medic</a>
+      <a href="../Doc/Doc.html">Doctores</a>
+      <a href="../index.html#contact" class="cta">Contacto</a>
+    </nav>
+    <button id="nav-toggle" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<main class="page container">
+
+
+  <!-- Pantalla de inicio -->
+  <div id="inicio" class="ventana">
+    <h1>Access Medic</h1>
+    <button onclick="abrirVentana('login')">Entrar</button>
+  </div>
+
+  <!-- Pantalla de login -->
+  <div id="login" class="ventana oculto">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" placeholder="Nombre" id="loginNombre">
+    <input type="password" placeholder="Contraseña" id="loginPass">
+    <button onclick="login()">Ingresar</button>
+    <button onclick="abrirVentana('inicio')">Volver</button>
+  </div>
+
+  <!-- Menú principal -->
+  <div id="menu" class="ventana oculto">
+    <h2>Bienvenido a Access Medic</h2>
+    <button onclick="abrirVentana('buscarDoctor')">Buscar Doctor</button>
+    <button onclick="abrirVentana('faq')">Preguntas y Respuestas</button>
+    <button onclick="abrirVentana('inicio')">Cerrar Sesión</button>
+  </div>
+
+  <!-- Buscar Doctor -->
+  <div id="buscarDoctor" class="ventana oculto">
+    <h3>Buscar Doctor</h3>
+    <select id="distrito">
+      <option value="">Seleccione Distrito</option>
+      <option value="Centro">Centro</option>
+      <option value="Norte">Norte</option>
+    </select>
+    <select id="municipio">
+      <option value="">Seleccione Municipio</option>
+      <option value="San Juan">San Juan</option>
+      <option value="San Pedro">San Pedro</option>
+    </select>
+    <select id="tipoDoctor">
+      <option value="">Tipo de Doctor</option>
+      <option value="Pediatra">Pediatra</option>
+      <option value="General">General</option>
+    </select>
+    <button onclick="mostrarDoctor()">Ver Doctores</button>
+    <button onclick="abrirVentana('menu')">Volver</button>
+  </div>
+
+  <!-- Lista de doctores -->
+  <div id="doctorDetalle" class="ventana oculto">
+    <h3>Doctor Cercano</h3>
+    <p><strong>Nombre:</strong> Dra. Ana López</p>
+    <p><strong>Tipo:</strong> Pediatra</p>
+    <p><strong>Descripción:</strong> Atención infantil de alta calidad.</p>
+    <button onclick="abrirVentana('mapa')">Ir a Buscar</button>
+    <button onclick="abrirVentana('agendar')">Agendar</button>
+    <button onclick="abrirVentana('buscarDoctor')">Volver</button>
+  </div>
+
+  <!-- Mapa (simplificado con iframe Google Maps) -->
+  <div id="mapa" class="ventana oculto">
+    <h3>Ubicación del Doctor</h3>
+    <iframe src="https://www.google.com/maps/embed?..." width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <button onclick="abrirVentana('doctorDetalle')">Volver</button>
+  </div>
+
+  <!-- Agendar cita -->
+  <div id="agendar" class="ventana oculto">
+    <h3>Agendar Cita</h3>
+    <input type="text" placeholder="Nombre del paciente">
+    <input type="number" placeholder="Edad">
+    <select>
+      <option>Género</option>
+      <option>Femenino</option>
+      <option>Masculino</option>
+    </select>
+    <input type="date">
+    <input type="time">
+    <textarea placeholder="Motivo de la cita"></textarea>
+    <button onclick="confirmarCita()">Agendar</button>
+    <button onclick="abrirVentana('doctorDetalle')">Volver</button>
+  </div>
+
+  <!-- Confirmación de agenda -->
+  <div id="confirmacion" class="ventana oculto">
+    <h3>✅ Cita Agendada</h3>
+    <p>Su cita ha sido reservada correctamente.</p>
+    <button onclick="abrirVentana('menu')">Volver al Menú</button>
+  </div>
+
+  <!-- Preguntas y Respuestas -->
+  <div id="faq" class="ventana oculto">
+    <h3>Preguntas y Respuestas</h3>
+    <textarea placeholder="Escriba su pregunta aquí"></textarea>
+    <button onclick="alert('Pregunta enviada')">Enviar</button>
+    <button onclick="abrirVentana('menu')">Volver</button>
+  </div>
+
+  <script src="script.js"></script>
+
+</main>
+
+<script src="../scripts.js"></script>
+<!-- Mantener script local si existe -->
+<script src="style.js"></script>
+</body>
+</html>

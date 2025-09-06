@@ -1,0 +1,108 @@
+/* inner.css — unifica páginas internas con el estilo del home */
+:root{
+  --celeste-900:#055e62;
+  --celeste-700:#0a9aa6;
+  --accent:#3fc3d6;
+  --white:#ffffff;
+  --muted:#6b7b7d;
+  --card:#f8feff;
+  --glass: rgba(255,255,255,0.08);
+  --radius:16px;
+  --maxw:1180px;
+  --shadow-lg: 0 20px 50px rgba(2,24,24,0.12);
+  --shadow-sm: 0 8px 24px rgba(6,22,20,0.08);
+}
+html,body{height:100%;font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;}
+
+body{
+  margin:0;
+  color: var(--white);
+  background:
+    radial-gradient(1200px 600px at -10% -10%, rgba(255,255,255,0.05), transparent 60%),
+    radial-gradient(1000px 400px at 110% -20%, rgba(255,255,255,0.05), transparent 60%),
+    linear-gradient(180deg, #01383b, #00282a 45%, #001f21);
+  background-attachment: fixed;
+}
+
+.container{max-width: var(--maxw);margin:0 auto;padding:0 20px;}
+main.page{padding-top:96px;padding-bottom:56px;}
+
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  color:#072b2e;
+}
+
+h1,h2,h3{line-height:1.1;margin:0 0 12px}
+h1{font-size: 34px}
+h2{font-size: 26px}
+h3{font-size: 20px}
+
+/* Botones globales */
+button, .btn{
+  appearance: none;
+  border:0;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 700;
+  transition: transform .06s ease, box-shadow .25s ease, background .25s ease;
+  background: var(--accent);
+  color: #00383b;
+  box-shadow: 0 10px 24px rgba(63,195,214,0.20), inset 0 -4px 0 rgba(0,0,0,0.06);
+  cursor:pointer;
+}
+button:hover{transform: translateY(-1px)}
+button:active{transform: translateY(1px)}
+
+/* Inputs */
+input, select, textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid rgba(2,24,24,0.12);
+  background:#ffffff;
+  color:#072b2e;
+  outline: none;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+input:focus,select:focus,textarea:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(63,195,214,0.25);
+}
+
+/* Tarjetas específicas de Access Medic (ventanas) */
+.ventana{
+  max-width: 900px;
+  margin: 18px auto;
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--card);
+  color:#072b2e;
+  box-shadow: var(--shadow-sm);
+}
+.ventana h1, .ventana h2, .ventana h3{color:#073a3f}
+.oculto{display:none}
+
+/* Doc page contenedor */
+.container.cardish{
+  background: var(--card);
+  color: #072b2e;
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 6px;
+}
+
+/* Ajustes de header/footer desde el home */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50}
+.site-footer{margin-top:40px}
+
+/* Primer contenedor de la página como tarjeta */
+main.page > .container:first-child{
+  background: var(--card);
+  color:#072b2e;
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Access Medic</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../inner.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="brand">Access<span class="accent"></span>Medic</a>
+    <nav class="nav">
+      <a href="../index.html">Inicio</a>
+      <a href="../Access Medic/index.html">Access Medic</a>
+      <a href="./Doc.html">Doctores</a>
+      <a href="../index.html#contact" class="cta">Contacto</a>
+    </nav>
+    <button id="nav-toggle" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+<main class="page container">
+
+    <div class="container">
+        <h1>Ingresar datos de un Doctor</h1>
+        <form id="doctorForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required />
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required />
+
+            <label for="nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="nacimiento" name="nacimiento" required />
+
+            <label for="tipoDoc">Tipo de Doctor:</label>
+            <select id="tipoDoc" name="tipoDoc" required>
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="DNI">General</option>
+                <option value="Pasaporte">Pediatra</option>
+                <option value="Cédula">Dentista</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label for="anosRubro">Años de experiencia en el rubro:</label>
+            <input type="number" id="anosRubro" name="anosRubro" min="0" max="80" required />
+
+            <label for="desempeno">Especificar desempeño:</label>
+            <textarea id="desempeno" name="desempeno" rows="4" placeholder="Describe un poco sobre su desempeño" required></textarea>
+
+            <button type="submit" id="enviarBtn">Enviar</button>
+        </form>
+
+        <div id="mensajeEnviado" class="mensaje-enviado">
+            Enviado
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('doctorForm');
+        const mensaje = document.getElementById('mensajeEnviado');
+        const enviarBtn = document.getElementById('enviarBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Mostrar mensaje con animación 3D azul
+            mensaje.classList.add('show');
+
+            // Opcional: limpiar formulario después de enviar
+            form.reset();
+
+            // Ocultar mensaje después de 3 segundos
+            setTimeout(() => {
+                mensaje.classList.remove('show');
+            }, 3000);
+        });
+    </script>
+
+</main>
+
+<script src="../scripts.js"></script>
+<!-- Mantener script local si existe -->
+<script src="styles.js"></script>
+</body>
+</html>

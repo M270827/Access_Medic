@@ -1,0 +1,151 @@
+/* v4 — Premium celeste + blanco aesthetic */
+:root{
+  --celeste-900:#055e62;
+  --celeste-700:#0a9aa6;
+  --accent:#3fc3d6;
+  --white:#ffffff;
+  --muted:#6b7b7d;
+  --card:#f8feff;
+  --glass: rgba(255,255,255,0.08);
+  --radius:16px;
+  --maxw:1180px;
+  --shadow-lg: 0 20px 50px rgba(2,24,24,0.12);
+  --shadow-sm: 0 8px 24px rgba(6,22,20,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin:0; background:linear-gradient(180deg,#f7feff,#ffffff); color:#043533; -webkit-font-smoothing:antialiased;}
+
+/* container */
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{position:fixed;left:0;right:0;top:0;z-index:60;transition:all .35s;backdrop-filter: blur(6px)}
+.site-header .header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{font-weight:800;color:var(--white);background:linear-gradient(90deg,var(--celeste-900),var(--celeste-700));padding:8px 12px;border-radius:12px;box-shadow:var(--shadow-sm)}
+.brand .accent{color:#fff;background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:8px;margin-left:4px}
+.nav{display:flex;align-items:center;gap:18px}
+.nav a{color:var(--white);text-decoration:none;font-weight:600;opacity:0.95}
+.nav .cta{background:var(--accent);color:#00363a;padding:8px 14px;border-radius:12px;box-shadow:0 8px 20px rgba(63,195,214,0.12)}
+
+/* Mobile nav toggle */
+#nav-toggle{display:none;background:transparent;border:0;color:var(--white);font-size:22px}
+
+/* Hero */
+.hero{padding-top:92px;background:linear-gradient(180deg,var(--celeste-900),var(--celeste-700));color:#e6fffd;padding-bottom:40px;position:relative;overflow:visible}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
+.kicker{font-weight:700;opacity:0.95}
+.hero-title{font-size:42px;line-height:1.02;margin:8px 0 12px;font-weight:800}
+.hero-sub{max-width:520px;opacity:0.95;margin-bottom:18px}
+.hero-cta{display:flex;gap:12px;margin-bottom:18px}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;transition:transform .22s ease, box-shadow .22s ease}
+.btn.primary{background:var(--white);color:var(--celeste-900);box-shadow:0 14px 40px rgba(2,24,24,0.18)}
+.btn.ghost{background:transparent;color:rgba(255,255,255,0.95);border:1px solid rgba(255,255,255,0.12)}
+
+.hero-stats{display:flex;gap:18px;list-style:none;padding:0;margin-top:18px}
+.hero-stats li{display:flex;flex-direction:column;color:rgba(255,255,255,0.95);font-weight:800}
+
+/* Device card */
+.device-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border-radius:20px;
+  padding:12px;
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-6px);
+  transition:transform .28s ease, box-shadow .28s ease;
+  overflow: hidden; /* evita que la imagen sobresalga */
+}
+
+.device-card:hover{
+  transform:translateY(-14px) scale(1.01);
+}
+
+.device-photo img{
+  width: 100%;             /* ocupa todo el ancho del card */
+  height: 100%;            /* ocupa todo el alto disponible */
+  max-height: 30Spx;       /* altura máxima para que no se estire demasiado */
+  object-fit: cover;       /* mantiene proporción, recorta lo que sobra */
+  border-radius:12px;
+  display:block;
+}
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.pill{
+  background:var(--accent);
+  color:#00363a;
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:12px;
+}
+
+.mini-badges span{
+  background:rgba(255,255,255,0.06);
+  padding:6px 8px;
+  border-radius:8px;
+  margin-left:6px;
+  font-size:12px;
+}
+
+/* Divider */
+.divider{display:block;width:100%;height:80px;margin-top:30px}
+
+/* Features */
+.features{padding:36px 0 18px}
+.features h2{text-align:center;margin-bottom:18px;color:#023533}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm);border:1px solid rgba(3,20,18,0.04)}
+.icon{font-size:28px;margin-bottom:10px}
+
+/* Courses */
+.courses{padding:36px 0}
+.courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.course img{width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:12px}
+.course h4{margin:6px 0 8px}
+
+/* Testimonials slider */
+.testimonials{background:linear-gradient(180deg,#f6ffff,#ffffff);padding:36px 0}
+.slider{display:flex;align-items:center;gap:12px;position:relative}
+.slides{display:flex;overflow:hidden;width:100%}
+.slide{min-width:100%;flex-shrink:0;display:none;align-items:center;gap:18px;padding:22px;background:var(--card);border-radius:14px;box-shadow:var(--shadow-sm)}
+.slide.active{display:flex}
+.slide img{width:72px;height:72px;border-radius:50%;object-fit:cover;margin-right:18px}
+.slide p{font-size:1rem;margin:0}
+.slide cite{display:block;margin-top:8px;color:var(--muted);font-weight:700}
+.slide-btn{background:transparent;border:0;font-size:26px;color:var(--celeste-900);cursor:pointer;padding:8px}
+
+/* Pricing */
+.pricing{padding:46px 0}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{padding:22px;border-radius:14px;text-align:center}
+.plan.featured{transform:scale(1.03);box-shadow:0 28px 60px rgba(2,24,24,0.12)}
+
+/* Contact */
+.contact{padding:36px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 350px;gap:20px;align-items:start}
+.contact-form input, .contact-form textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(3,20,18,0.06);margin-top:8px;margin-bottom:12px;font-size:14px}
+.form-row{display:flex;gap:12px;align-items:center}
+.form-msg{color:green;font-weight:700}
+
+/* Footer */
+.site-footer{background:#e8fbfc;padding:20px 0;margin-top:20px}
+
+/* Utilities & responsive */
+.fade-up{opacity:0;transform:translateY(14px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+.fade-up.in{opacity:1;transform:none}
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr; text-align:center}
+  .hero-right{order:-1}
+  .features-grid{grid-template-columns:1fr}
+  .courses-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  #nav-toggle{display:block}
+  .nav{display:none}
+}
